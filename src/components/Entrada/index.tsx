@@ -13,7 +13,7 @@ export function Entrada({fita, setFita}: Props){
         for(let i=0;i<fitaString.length;i++){
             array.push(fitaString[i]);
         }
-        setFita([...array,...fita]);
+        setFita(["|",...array,...fita]);
     };
 
     return(
