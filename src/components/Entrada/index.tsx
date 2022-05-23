@@ -18,7 +18,7 @@ export function Entrada({fita, setFita}: Props){
 
     return(
         <>
-            <label >Fita:
+            <label >Cadeia:
             <input type="text" value={fitaString} onChange={(e) => setFitaString(e.target.value)} />
             </label>    
             <input type="submit" value="Enviar" onClick={FitaParaArray}/>
