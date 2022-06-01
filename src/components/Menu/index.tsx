@@ -7,6 +7,7 @@ import { Maquina } from '../Maquina';
 import {
   ButtonWrapper,
   WrapperDescription,
+  WrapperFita,
   WrapperMachine,
   WrapperMenu,
 } from './styles';
@@ -110,7 +111,7 @@ export function Menu() {
         {/* <button onClick={acelerar}>Acelerar</button> */}
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
-        {fita}
+        <WrapperFita>{fita}</WrapperFita>
         <p>{sucesso}</p>
         <p>{erro}</p>
       </WrapperMachine>

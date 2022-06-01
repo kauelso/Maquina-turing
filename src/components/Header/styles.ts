@@ -11,18 +11,9 @@ export const WrapperHeader = styled.header`
   box-shadow: #111111;
   background-color: #fb4570;
 
-  @media (max-width: 576px) {
-    width: 100vw;
-  }
-
-  & > div:first-child {
-    display: flex;
-    align-items: center;
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 500;
-      color: #efebe0;
-    }
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #efebe0;
   }
 `;

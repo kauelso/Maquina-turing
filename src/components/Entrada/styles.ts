@@ -9,7 +9,7 @@ export const TextWrapper = styled.input`
 
 export const SubmitWrapper = styled.input`
   position: relative;
-  background-color: #fb8da0;
+  background-color: #fb4570;
   border-radius: 4px;
   margin: 3px 3px;
   font-size: 1rem;

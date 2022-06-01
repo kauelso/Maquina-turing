@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
 import GlobalStyles from './GlobalStyles';
@@ -12,5 +13,6 @@ root.render(
     <GlobalStyles />
     <Header />
     <Menu />
+    <Footer />
   </React.StrictMode>
 );

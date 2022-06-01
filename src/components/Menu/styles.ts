@@ -18,21 +18,10 @@ export const WrapperMenu = styled.div`
   h4 {
     font-size: 2rem;
   }
-  p {
-    font-family: 'Segoe UI';
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  span {
-    display: flex;
-    flex-direction: row;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
 `;
 export const ButtonWrapper = styled.button`
   position: relative;
-  background-color: #fb8da0;
+  background-color: #fb4570;
   border-radius: 4px;
   margin-bottom: 3px;
   font-size: 1rem;
@@ -48,5 +37,18 @@ export const ButtonWrapper = styled.button`
 export const WrapperMachine = styled.div`
   display: flex;
   flex-direction: column;
+  background: #fb8da0;
+  border-radius: 4px;
+  padding: 0.5rem;
 `;
 export const WrapperDescription = styled.div``;
+
+export const WrapperFita = styled.div`
+  background: #efebe0;
+  font-size: 1rem;
+  width: 100%;
+  border: 10px;
+  border-color: #fb8da0;
+  height: 2rem;
+  border-radius: 2px;
+`;
