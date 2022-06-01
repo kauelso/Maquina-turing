@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const WrapperMenu = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -44,3 +44,9 @@ export const ButtonWrapper = styled.button`
   overflow: hidden;
   cursor: pointer;
 `;
+
+export const WrapperMachine = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const WrapperDescription = styled.div``;

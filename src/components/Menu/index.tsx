@@ -4,7 +4,12 @@ import { MaquinaTuring } from '../../types/MaquinaTuring';
 import { Entrada } from '../Entrada';
 import data from '../data/maquina.json';
 import { Maquina } from '../Maquina';
-import { ButtonWrapper, WrapperMenu } from './styles';
+import {
+  ButtonWrapper,
+  WrapperDescription,
+  WrapperMachine,
+  WrapperMenu,
+} from './styles';
 
 export function Menu() {
   const [estadoAtual, setEstadoAtual] = useState<Estado>();
@@ -94,17 +99,21 @@ export function Menu() {
 
   return (
     <WrapperMenu>
-      <h4>Maquina:</h4>
-      <Maquina maquina={maquina} />
-      <p>Estado atual: {estadoAtual?.nome}</p>
-      <Entrada setFita={setFita} fita={fita} />
-      <ButtonWrapper onClick={passo}>Proximo</ButtonWrapper>
-      {/* <button onClick={acelerar}>Acelerar</button> */}
-      <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
-      <br />
-      {fita}
-      <p>{sucesso}</p>
-      <p>{erro}</p>
+      <WrapperDescription>
+        <h4>Maquina:</h4>
+        <Maquina maquina={maquina} />
+      </WrapperDescription>
+      <WrapperMachine>
+        <p>Estado atual: {estadoAtual?.nome}</p>
+        <Entrada setFita={setFita} fita={fita} />
+        <ButtonWrapper onClick={passo}>Proximo</ButtonWrapper>
+        {/* <button onClick={acelerar}>Acelerar</button> */}
+        <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
+        <br />
+        {fita}
+        <p>{sucesso}</p>
+        <p>{erro}</p>
+      </WrapperMachine>
     </WrapperMenu>
   );
 }
