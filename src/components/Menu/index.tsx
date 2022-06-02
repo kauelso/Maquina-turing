@@ -63,9 +63,6 @@ export function Menu() {
   }
 
   function passo() {
-    //Aumenta tamanho da fita
-    if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
-
     const transicao = estadoAtual?.transicoes.find(
       (value) => value.simboloEntrada === fita[posicao]
     );
@@ -84,6 +81,9 @@ export function Menu() {
           setPosicao(Math.max(posicao - 1,0));
           break;
       }
+
+      //Aumenta tamanho da fita
+      if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
 
       //Muda estado atual
       const proxEstado = maquina?.estados.find(
