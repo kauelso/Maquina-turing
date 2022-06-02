@@ -34,20 +34,20 @@ export function Maquina({ maquina }: Props) {
         <span>{estado.nome + ' '}</span>
       ))}
       <br />
-      Transicoes:{' '}
+      Transições:{' '}
       {montaTransicoes().map((tr) => (
         <p>{tr}</p>
       ))}
       <br />
       Alfabeto: {maquina.alfabeto + ' '}
       <br />
-      AlfabetoFita: {maquina.alfabetoFita + ' '}
+      Alfabeto da Fita: {maquina.alfabetoFita + ' '}
       <br />
       Estado inicial: {maquina.estadoInicial}
       <br />
       Estados finais: {maquina.estadosFinais + ' '}
       <br />
-      Simbolo branco: {maquina.simboloBranco}
+      Símbolo branco: {maquina.simboloBranco}
     </WrapperMaquina>
   );
 }

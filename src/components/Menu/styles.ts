@@ -17,6 +17,7 @@ export const WrapperMenu = styled.div`
   font-family: 'Segoe UI';
   h4 {
     font-size: 2rem;
+    color: #ffffff;
   }
 `;
 export const ButtonWrapper = styled.button`
@@ -32,6 +33,7 @@ export const ButtonWrapper = styled.button`
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+  font-weight: bold;
 `;
 
 export const WrapperMachine = styled.div`
@@ -40,6 +42,13 @@ export const WrapperMachine = styled.div`
   background: #fb8da0;
   border-radius: 4px;
   padding: 0.5rem;
+  p {
+    font-family: 'Segoe UI';
+    font-size: 1rem;
+    font-weight: normal;
+    color: #efebe0;
+    font-weight: bold;
+  }
 `;
 export const WrapperDescription = styled.div``;
 
@@ -51,4 +60,5 @@ export const WrapperFita = styled.div`
   border-color: #fb8da0;
   height: 2rem;
   border-radius: 2px;
+  text-align: center;
 `;

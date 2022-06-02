@@ -21,7 +21,8 @@ export default createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #FB8DA0;
+    background:linear-gradient(rgba(250,250,250,0.5),transparent);
+    background-color:#FB8DA0; /*this your primary color*/
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

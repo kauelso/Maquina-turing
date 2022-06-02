@@ -20,10 +20,12 @@ export const SubmitWrapper = styled.input`
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+  font-weight: bold;
 `;
 export const LabelWrapper = styled.label`
   font-family: 'Segoe UI';
   font-weight: bold;
   font-size: 1rem;
   padding: 0.5rem;
+  color: #ffffff;
 `;

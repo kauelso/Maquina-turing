@@ -101,7 +101,7 @@ export function Menu() {
   return (
     <WrapperMenu>
       <WrapperDescription>
-        <h4>Maquina:</h4>
+        <h4>Máquina:</h4>
         <Maquina maquina={maquina} />
       </WrapperDescription>
       <WrapperMachine>
