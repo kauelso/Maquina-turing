@@ -4,12 +4,6 @@
             "nome":"q0",
             "transicoes":[
                 {
-                    "estadoDestino": "q0",
-                    "direcao": "D",
-                    "simboloEntrada": "|",
-                    "simboloSaida": "|"
-                },
-                {
                     "estadoDestino": "q1",
                     "direcao": "D",
                     "simboloEntrada": "0",
@@ -99,7 +93,7 @@
     ],
     "estadoInicial":"q0",
     "alfabeto":["0","1"],
-    "alfabetoFita":["|","0","1","X","Y","B"],
+    "alfabetoFita":["0","1","X","Y","B"],
     "simboloBranco":"B",
     "estadosFinais":["q4"]
 }
