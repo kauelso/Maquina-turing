@@ -63,9 +63,15 @@ export function Menu() {
   }
 
   function passo() {
+    //Aumenta tamanho da fita
+    if ((posicao) === fita.length) fita.push(maquina?.simboloBranco ?? '');
+
     const transicao = estadoAtual?.transicoes.find(
       (value) => value.simboloEntrada === fita[posicao]
     );
+
+    console.log(fita[posicao])
+
     if (transicao !== undefined) {
       //Escreve na fita
       const fitaAuxiliar = [...fita];
@@ -82,9 +88,6 @@ export function Menu() {
           break;
       }
 
-      //Aumenta tamanho da fita
-      if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
-
       //Muda estado atual
       const proxEstado = maquina?.estados.find(
         (value) => value.nome === transicao.estadoDestino
@@ -92,7 +95,8 @@ export function Menu() {
       setEstadoAtual(proxEstado);
     } else {
       resultado();
-    }  
+    }
+    
   }
 
   return (
