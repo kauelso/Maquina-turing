@@ -19,6 +19,7 @@ export const WrapperMenu = styled.div`
     font-size: 2rem;
     color: #ffffff;
   }
+  max-height: 600vh;
 `;
 export const ButtonWrapper = styled.button`
   position: relative;
@@ -40,6 +41,8 @@ export const WrapperMachine = styled.div`
   display: flex;
   flex-direction: column;
   background: #fb8da0;
+  max-width: 35vw;
+  max-height: 600vh;
   border-radius: 4px;
   padding: 0.5rem;
   p {
@@ -49,6 +52,7 @@ export const WrapperMachine = styled.div`
     color: #efebe0;
     font-weight: bold;
   }
+  white-space: normal;
 `;
 export const WrapperDescription = styled.div``;
 
@@ -62,4 +66,14 @@ export const WrapperFita = styled.div`
   border-radius: 2px;
   text-align: center;
   text-decoration: dashed;
+`;
+
+export const PassosWrapper = styled.div`
+  display: flex;
+  justify-content: column;
+  max-width: 35vw;
+  max-height: 80vh;
+  color: #ffffff;
+  font-family: inherit;
+  white-space: normal;
 `;

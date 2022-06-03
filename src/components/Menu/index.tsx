@@ -6,6 +6,7 @@ import data from '../data/maquina.json';
 import { Maquina } from '../Maquina';
 import {
   ButtonWrapper,
+  PassosWrapper,
   WrapperDescription,
   WrapperFita,
   WrapperMachine,
@@ -27,22 +28,18 @@ export function Menu() {
     };
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     setEstadoAtual(
       maquina?.estados.find((value) => value.nome === maquina.estadoInicial)
     );
     setFita([maquina?.simboloBranco ?? '']);
-  },[maquina]);
+  }, [maquina]);
 
-  useEffect(()=>{
+  useEffect(() => {
     //Salva passos
     let fitaString = fita.join('');
-    passos.push(fitaString);
+    passos.push(fitaString + '|- ');
   }, [fita]);
-
-  useEffect(()=>{
-    console.log(passos)
-  }, [sucesso]);
 
   function limpa() {
     setPosicao(0);
@@ -55,24 +52,28 @@ export function Menu() {
     setPassos([]);
   }
 
-  function resultado(){
+  function resultado() {
     setErro('');
     setSucesso('');
     if (maquina?.estadosFinais.find((value) => value === estadoAtual?.nome))
       setSucesso('ACEITA');
-    else if (maquina?.alfabetoFita.find((value) => value === fita[posicao]) === undefined) 
+    else if (
+      maquina?.alfabetoFita.find((value) => value === fita[posicao]) ===
+      undefined
+    )
       setErro('REJEITA: Simbolo não pertence ao alfabeto.');
-    else 
-      setErro('REJEITA: Nenhuma transição para esse símbolo encontrada.');
+    else setErro('REJEITA: Nenhuma transição para esse símbolo encontrada.');
   }
 
   function passo() {
     //Aumenta tamanho da fita
-    if ((posicao) === fita.length) fita.push(maquina?.simboloBranco ?? '');
+    if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
 
     const transicao = estadoAtual?.transicoes.find(
       (value) => value.simboloEntrada === fita[posicao]
     );
+
+    console.log(fita[posicao]);
 
     if (transicao !== undefined) {
       //Escreve na fita
@@ -86,7 +87,7 @@ export function Menu() {
           setPosicao(posicao + 1);
           break;
         case 'E':
-          setPosicao(Math.max(posicao - 1,0));
+          setPosicao(Math.max(posicao - 1, 0));
           break;
       }
 
@@ -98,7 +99,6 @@ export function Menu() {
     } else {
       resultado();
     }
-    
   }
 
   return (
@@ -109,11 +109,16 @@ export function Menu() {
       </WrapperDescription>
       <WrapperMachine>
         <p>Estado atual: {estadoAtual?.nome}</p>
-        <Entrada setFita={setFita} limpaFita={limpa} simboloBranco={maquina !== undefined ? maquina.simboloBranco : ''} />
+        <Entrada
+          setFita={setFita}
+          limpaFita={limpa}
+          simboloBranco={maquina !== undefined ? maquina.simboloBranco : ''}
+        />
         <ButtonWrapper onClick={passo}>Proximo</ButtonWrapper>
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
         <WrapperFita>{fita}</WrapperFita>
+        <PassosWrapper>{passos}</PassosWrapper>
         <p>{sucesso}</p>
         <p>{erro}</p>
       </WrapperMachine>
