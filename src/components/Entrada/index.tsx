@@ -16,7 +16,7 @@ export function Entrada({ simboloBranco, limpaFita, setFita }: Props) {
     for (let i = 0; i < fitaString.length; i++) {
       array.push(fitaString[i]);
     }
-    array.push(simboloBranco)
+    array.push(simboloBranco);
     setFita(array);
   }
 
