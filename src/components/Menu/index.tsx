@@ -20,7 +20,7 @@ export function Menu() {
   const [erro, setErro] = useState<string>('');
   const [sucesso, setSucesso] = useState<string>('');
 
-  const passos = [];
+  const [passos, setPassos] = useState<string[]>([]);
 
   useEffect(() => {
     return () => {
@@ -54,7 +54,7 @@ export function Menu() {
     //Salva passos
     let fitaString = '';
     fita.map((value) => fitaString.concat(value));
-    passos.push(fitaString);
+    setPassos([...passos, fitaString]);
 
     //Aumenta tamanho da fita
     if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
@@ -112,6 +112,7 @@ export function Menu() {
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
         <WrapperFita>{fita}</WrapperFita>
+        <p>{passos}</p>
         <p>{sucesso}</p>
         <p>{erro}</p>
       </WrapperMachine>

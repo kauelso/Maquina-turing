@@ -61,4 +61,5 @@ export const WrapperFita = styled.div`
   height: 2rem;
   border-radius: 2px;
   text-align: center;
+  text-decoration: dashed;
 `;
