@@ -19,18 +19,30 @@ export function Menu() {
   const [fita, setFita] = useState<string[]>([]);
   const [erro, setErro] = useState<string>('');
   const [sucesso, setSucesso] = useState<string>('');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1e4df61f91b6a17cb30ed7da3bedc51eaef0fe3a
   const [passos, setPassos] = useState<string[]>([]);
 
   useEffect(() => {
     return () => {
       setMaquina(data);
-      setEstadoAtual(
-        maquina?.estados.find((value) => value.nome === maquina.estadoInicial)
-      );
-      setFita([maquina?.simboloBranco ?? '']);
     };
   }, []);
+
+  useEffect(()=>{
+    setEstadoAtual(
+      maquina?.estados.find((value) => value.nome === maquina.estadoInicial)
+    );
+    setFita([maquina?.simboloBranco ?? '']);
+  },[maquina]);
+
+  useEffect(()=>{
+    //Salva passos
+    let fitaString = fita.join('');
+    passos.push(fitaString);
+  }, [fita]);
 
   function limpa() {
     setPosicao(0);
@@ -40,15 +52,22 @@ export function Menu() {
     setFita([maquina?.simboloBranco ?? '']);
     setErro('');
     setSucesso('');
+    setPassos([]);
   }
 
-  function acelerar() {
-    while (erro === '' && sucesso === '') {
-      passo();
-    }
+  function resultado(){
+    setErro('');
+    setSucesso('');
+    if (maquina?.estadosFinais.find((value) => value === estadoAtual?.nome))
+      setSucesso('ACEITA');
+    else if (maquina?.alfabetoFita.find((value) => value === fita[posicao]) === undefined) 
+      setErro('REJEITA: Simbolo não pertence ao alfabeto.');
+    else 
+      setErro('REJEITA: Nenhuma transição para esse símbolo encontrada.');
   }
 
   function passo() {
+<<<<<<< HEAD
     console.log(fita);
 
     //Salva passos
@@ -56,12 +75,17 @@ export function Menu() {
     fita.map((value) => fitaString.concat(value));
     setPassos([...passos, fitaString]);
 
+=======
+>>>>>>> 1e4df61f91b6a17cb30ed7da3bedc51eaef0fe3a
     //Aumenta tamanho da fita
-    if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
+    if ((posicao) === fita.length) fita.push(maquina?.simboloBranco ?? '');
 
     const transicao = estadoAtual?.transicoes.find(
       (value) => value.simboloEntrada === fita[posicao]
     );
+
+    console.log(fita[posicao])
+
     if (transicao !== undefined) {
       //Escreve na fita
       const fitaAuxiliar = [...fita];
@@ -74,7 +98,7 @@ export function Menu() {
           setPosicao(posicao + 1);
           break;
         case 'E':
-          setPosicao(posicao - 1);
+          setPosicao(Math.max(posicao - 1,0));
           break;
       }
 
@@ -83,19 +107,10 @@ export function Menu() {
         (value) => value.nome === transicao.estadoDestino
       );
       setEstadoAtual(proxEstado);
-    } else if (
-      maquina?.estadosFinais.find((value) => value === estadoAtual?.nome)
-    ) {
-      setSucesso('ACEITA');
-    } else if (
-      maquina?.alfabetoFita.find((value) => value === fita[posicao]) ===
-      undefined
-    ) {
-      setErro('REJEITA: Simbolo não pertence ao alfabeto.');
     } else {
-      console.log(estadoAtual);
-      setErro('REJEITA: Nenhuma transição para esse símbolo encontrada.');
+      resultado();
     }
+    
   }
 
   return (
@@ -106,9 +121,8 @@ export function Menu() {
       </WrapperDescription>
       <WrapperMachine>
         <p>Estado atual: {estadoAtual?.nome}</p>
-        <Entrada setFita={setFita} fita={fita} />
+        <Entrada setFita={setFita} limpaFita={limpa} simboloBranco={maquina !== undefined ? maquina.simboloBranco : ''} />
         <ButtonWrapper onClick={passo}>Proximo</ButtonWrapper>
-        {/* <button onClick={acelerar}>Acelerar</button> */}
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
         <WrapperFita>{fita}</WrapperFita>
