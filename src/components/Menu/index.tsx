@@ -19,10 +19,6 @@ export function Menu() {
   const [fita, setFita] = useState<string[]>([]);
   const [erro, setErro] = useState<string>('');
   const [sucesso, setSucesso] = useState<string>('');
-<<<<<<< HEAD
-
-=======
->>>>>>> 1e4df61f91b6a17cb30ed7da3bedc51eaef0fe3a
   const [passos, setPassos] = useState<string[]>([]);
 
   useEffect(() => {
@@ -43,6 +39,10 @@ export function Menu() {
     let fitaString = fita.join('');
     passos.push(fitaString);
   }, [fita]);
+
+  useEffect(()=>{
+    console.log(passos)
+  }, [sucesso]);
 
   function limpa() {
     setPosicao(0);
@@ -67,24 +67,12 @@ export function Menu() {
   }
 
   function passo() {
-<<<<<<< HEAD
-    console.log(fita);
-
-    //Salva passos
-    let fitaString = '';
-    fita.map((value) => fitaString.concat(value));
-    setPassos([...passos, fitaString]);
-
-=======
->>>>>>> 1e4df61f91b6a17cb30ed7da3bedc51eaef0fe3a
     //Aumenta tamanho da fita
     if ((posicao) === fita.length) fita.push(maquina?.simboloBranco ?? '');
 
     const transicao = estadoAtual?.transicoes.find(
       (value) => value.simboloEntrada === fita[posicao]
     );
-
-    console.log(fita[posicao])
 
     if (transicao !== undefined) {
       //Escreve na fita
@@ -126,7 +114,6 @@ export function Menu() {
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
         <WrapperFita>{fita}</WrapperFita>
-        <p>{passos}</p>
         <p>{sucesso}</p>
         <p>{erro}</p>
       </WrapperMachine>
