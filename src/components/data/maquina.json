@@ -6,8 +6,8 @@
                 {
                     "estadoDestino": "q0",
                     "direcao": "D",
-                    "simboloEntrada": "|",
-                    "simboloSaida": "|"
+                    "simboloEntrada": ">",
+                    "simboloSaida": ">"
                 },
                 {
                     "estadoDestino": "q1",
@@ -99,7 +99,7 @@
     ],
     "estadoInicial":"q0",
     "alfabeto":["0","1"],
-    "alfabetoFita":["|","0","1","X","Y","B"],
+    "alfabetoFita":[">","0","1","X","Y","B"],
     "simboloBranco":"B",
     "estadosFinais":["q4"]
 }
