@@ -13,6 +13,7 @@ export function Entrada({ simboloBranco, limpaFita, setFita }: Props) {
   function FitaParaArray() {
     limpaFita();
     let array: string[] = [];
+    array.push(">");
     for (let i = 0; i < fitaString.length; i++) {
       array.push(fitaString[i]);
     }

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface IProps{
+  isActive: boolean;
+}
+
 export const WrapperMenu = styled.div`
   display: flex;
   flex-direction: row;
@@ -68,12 +72,20 @@ export const WrapperFita = styled.div`
   text-decoration: dashed;
 `;
 
+export const FitaPosicao = styled.text<IProps>`
+  color: ${prop => prop.isActive? 'red' : 'black'}
+`;
+
 export const PassosWrapper = styled.div`
   display: flex;
   justify-content: column;
+  background: #fb8da0;
   max-width: 35vw;
   max-height: 80vh;
   color: #ffffff;
   font-family: inherit;
   white-space: normal;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin: 0.5rem;
 `;

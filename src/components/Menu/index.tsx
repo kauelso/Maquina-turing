@@ -11,6 +11,7 @@ import {
   WrapperFita,
   WrapperMachine,
   WrapperMenu,
+  FitaPosicao
 } from './styles';
 
 export function Menu() {
@@ -32,13 +33,14 @@ export function Menu() {
     setEstadoAtual(
       maquina?.estados.find((value) => value.nome === maquina.estadoInicial)
     );
-    setFita([maquina?.simboloBranco ?? '']);
   }, [maquina]);
 
   useEffect(() => {
-    //Salva passos
-    let fitaString = fita.join('');
-    passos.push(fitaString + '|- ');
+    if(!isFinished()){
+      //Salva passos
+      let fitaString = fita.join('');
+      passos.push(fitaString + ' - ');
+    }
   }, [fita]);
 
   function limpa() {
@@ -46,10 +48,14 @@ export function Menu() {
     setEstadoAtual(
       maquina?.estados.find((value) => value.nome === maquina.estadoInicial)
     );
-    setFita([maquina?.simboloBranco ?? '']);
+    setFita([">",maquina?.simboloBranco ?? '']);
     setErro('');
     setSucesso('');
     setPassos([]);
+  }
+
+  function isFinished(): boolean{
+    return sucesso.trim() !== '' || erro.trim() !=='';
   }
 
   function resultado() {
@@ -66,6 +72,9 @@ export function Menu() {
   }
 
   function passo() {
+    //Verifica se simbolo existe no alfabeto da fita
+    const simboloExiste = maquina?.alfabetoFita.find((value) => value === fita[posicao]);
+
     //Aumenta tamanho da fita
     if (posicao === fita.length) fita.push(maquina?.simboloBranco ?? '');
 
@@ -73,9 +82,7 @@ export function Menu() {
       (value) => value.simboloEntrada === fita[posicao]
     );
 
-    console.log(fita[posicao]);
-
-    if (transicao !== undefined) {
+    if (transicao !== undefined && simboloExiste) {
       //Escreve na fita
       const fitaAuxiliar = [...fita];
       fitaAuxiliar[posicao] = transicao.simboloSaida;
@@ -117,11 +124,13 @@ export function Menu() {
         <ButtonWrapper onClick={passo}>Proximo</ButtonWrapper>
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
-        <WrapperFita>{fita}</WrapperFita>
-        <PassosWrapper>{passos}</PassosWrapper>
+        <WrapperFita>{fita.map((e, index) => {
+          return <FitaPosicao isActive={index==posicao}>{e}</FitaPosicao>
+        })}</WrapperFita>
         <p>{sucesso}</p>
         <p>{erro}</p>
       </WrapperMachine>
+      <PassosWrapper>{passos}</PassosWrapper>
     </WrapperMenu>
   );
 }
