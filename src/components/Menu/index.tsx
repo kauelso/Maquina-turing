@@ -39,7 +39,7 @@ export function Menu() {
     if(!isFinished()){
       //Salva passos
       let fitaString = fita.join('');
-      passos.push(fitaString + ' - ');
+      passos.push(fitaString + ' |- ');
     }
   }, [fita]);
 
@@ -125,7 +125,7 @@ export function Menu() {
         <ButtonWrapper onClick={limpa}>Limpar </ButtonWrapper>
         <br />
         <WrapperFita>{fita.map((e, index) => {
-          return <FitaPosicao isActive={index==posicao}>{e}</FitaPosicao>
+          return <FitaPosicao isActive={index===posicao}>{e}</FitaPosicao>
         })}</WrapperFita>
         <p>{sucesso}</p>
         <p>{erro}</p>

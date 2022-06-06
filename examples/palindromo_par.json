@@ -131,5 +131,5 @@
     "alfabeto":["a","b"],
     "alfabetoFita":[">","a","b","X","B"],
     "simboloBranco":"B",
-    "estadosFinais":["q0"]
+    "estadosFinais":["q5"]
 }
