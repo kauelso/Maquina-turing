@@ -1,0 +1,99 @@
+{
+  "estados": [
+    {
+      "nome": "q0",
+      "transicoes": [
+        {
+          "estadoDestino": "q0",
+          "direcao": "D",
+          "simboloEntrada": ">",
+          "simboloSaida": ">"
+        },
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "a",
+          "simboloSaida": "x"
+        },
+        {
+          "estadoDestino": "q3",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        }
+      ]
+    },
+    {
+      "nome": "q1",
+      "transicoes": [
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "a",
+          "simboloSaida": "a"
+        },
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        },
+        {
+          "estadoDestino": "q2",
+          "direcao": "E",
+          "simboloEntrada": "b",
+          "simboloSaida": "y"
+        }
+      ]
+    },
+    {
+      "nome": "q2",
+      "transicoes": [
+        {
+          "estadoDestino": "q2",
+          "direcao": "E",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        },
+        {
+          "estadoDestino": "q2",
+          "direcao": "E",
+          "simboloEntrada": "a",
+          "simboloSaida": "a"
+        },
+        {
+          "estadoDestino": "q0",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        }
+      ]
+    },
+    {
+      "nome": "q3",
+      "transicoes": [
+        {
+          "estadoDestino": "q3",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        },
+        {
+          "estadoDestino": "q4",
+          "direcao": "D",
+          "simboloEntrada": "B",
+          "simboloSaida": "B"
+        }
+      ]
+    },
+    {
+      "nome": "q4",
+      "transicoes": []
+    }
+  ],
+  "estadoInicial": "q0",
+  "alfabeto": ["a", "b"],
+  "alfabetoFita": [">", "a", "b", "x", "y", "B"],
+  "simboloBranco": "B",
+  "estadosFinais": ["q4"]
+}

@@ -1,0 +1,140 @@
+{
+  "estados": [
+    {
+      "nome": "q0",
+      "transicoes": [
+        {
+          "estadoDestino": "q0",
+          "direcao": "D",
+          "simboloEntrada": ">",
+          "simboloSaida": ">"
+        },
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "a",
+          "simboloSaida": "x"
+        },
+        {
+          "estadoDestino": "q4",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        }
+      ]
+    },
+    {
+      "nome": "q1",
+      "transicoes": [
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "a",
+          "simboloSaida": "a"
+        },
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "b",
+          "simboloSaida": "y"
+        },
+        {
+          "estadoDestino": "q1",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        }
+      ]
+    },
+    {
+      "nome": "q2",
+      "transicoes": [
+        {
+          "estadoDestino": "q2",
+          "direcao": "D",
+          "simboloEntrada": "b",
+          "simboloSaida": "b"
+        },
+        {
+          "estadoDestino": "q3",
+          "direcao": "E",
+          "simboloEntrada": "c",
+          "simboloSaida": "z"
+        },
+        {
+          "estadoDestino": "q2",
+          "direcao": "D",
+          "simboloEntrada": "z",
+          "simboloSaida": "z"
+        }
+      ]
+    },
+    {
+      "nome": "q3",
+      "transicoes": [
+        {
+          "estadoDestino": "q3",
+          "direcao": "E",
+          "simboloEntrada": "b",
+          "simboloSaida": "b"
+        },
+        {
+          "estadoDestino": "q3",
+          "direcao": "E",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        },
+        {
+          "estadoDestino": "q3",
+          "direcao": "E",
+          "simboloEntrada": "a",
+          "simboloSaida": "a"
+        },
+        {
+          "estadoDestino": "q0",
+          "direcao": "D",
+          "simboloEntrada": "x",
+          "simboloSaida": "x"
+        },
+        {
+          "estadoDestino": "q3",
+          "direcao": "L",
+          "simboloEntrada": "z",
+          "simboloSaida": "z"
+        }
+      ]
+    },
+    {
+      "nome": "q4",
+      "transicoes": [
+        {
+          "estadoDestino": "q4",
+          "direcao": "D",
+          "simboloEntrada": "y",
+          "simboloSaida": "y"
+        },
+        {
+          "estadoDestino": "q4",
+          "direcao": "D",
+          "simboloEntrada": "z",
+          "simboloSaida": "z"
+        },
+        {
+          "estadoDestino": "q5",
+          "direcao": "R",
+          "simboloEntrada": "B",
+          "simboloSaida": "B"
+        }
+      ]
+    },
+    {
+      "nome": "q5",
+      "transicoes": []
+    }
+  ],
+  "estadoInicial": "q0",
+  "alfabeto": ["a", "b", "c"],
+  "alfabetoFita": [">", "a", "b", "c", "x", "y", "z", "B"],
+  "simboloBranco": "B",
+  "estadosFinais": ["q5"]
+}
